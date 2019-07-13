@@ -1,0 +1,76 @@
+mat-card.mat-card-albums.mat-card-albums {
+    background-color: #343a40;
+    color: #ffffff;
+    padding:  8px 10px 16px 10px;
+    margin: 8px 0px 8px 0px;
+}
+
+mat-card-title.card-title-page.mat-card-title {
+    font-size: xx-large;
+}
+
+mat-card-actions.mat-card-actions {
+    text-align: center;
+}
+
+button.delete-button.mat-button._mat-animation-noopable {
+	background-color:#c74545;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #bd2d2d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #bd2d2d;
+}
+
+button.delete-button.mat-button._mat-animation-noopable:hover {
+	background-color:#bd2a2a;
+}
+
+button.delete-button.mat-button._mat-animation-noopable:active {
+	position:relative;
+	top:1px;
+}
+
+button.edit-button.mat-button._mat-animation-noopable {
+	background-color:#45c7b6;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #2ca7bd;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2d8fbd;
+}
+
+button.edit-button.mat-button._mat-animation-noopable:hover {
+	background-color:#2ca7bd;
+}
+
+button.edit-button.mat-button._mat-animation-noopable:active {
+	position:relative;
+	top:1px;
+}
+
+mat-card-title.card-album-title.mat-card-title {
+    font-size: large;
+    padding: 0px;
+    margin-bottom: 4px;
+}
+
+mat-card-subtitle.card-album-subtitle.mat-card-subtitle {
+    font-size: small;
+    padding: 0px;
+    margin-bottom: 16px;
+}
+
+input#mat-input-0 {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}

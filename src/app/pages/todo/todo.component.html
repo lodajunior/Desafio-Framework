@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title class="card-title-page">To-Do's</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table cdk-table [dataSource]="newTodoList">
+                        <ng-container cdkColumnDef="id">
+                            <th cdk-header-cell *cdkHeaderCellDef> Id </th>
+                            <td cdk-cell *cdkCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <ng-container cdkColumnDef="title">
+                            <th cdk-header-cell *cdkHeaderCellDef> Title </th>
+                            <td cdk-cell *cdkCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container cdkColumnDef="userId">
+                            <th cdk-header-cell *cdkHeaderCellDef> UserId </th>
+                            <td cdk-cell *cdkCellDef="let element"> {{element.userId}} </td>
+                        </ng-container>
+
+                        <ng-container cdkColumnDef="completed">
+                            <th cdk-header-cell *cdkHeaderCellDef> Completed </th>
+                            <td cdk-cell *cdkCellDef="let element"> {{element.completed}} </td>
+                        </ng-container>
+
+                        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+                        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
