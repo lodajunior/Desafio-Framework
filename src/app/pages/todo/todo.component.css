@@ -1,4 +1,24 @@
+mat-card.mat-card {
+    margin: 10px;
+}
 
 mat-card-title.card-title-page.mat-card-title {
     font-size: xx-large;
+}
+
+button.mat-raised-button._mat-animation-noopable {
+    margin: 4px;
+}
+
+table.table.table-lg.table-dark {
+    border-radius: 10px;
+    background-color: #343a40;
+}
+
+table thead tr th {
+    text-align: center;
+}
+
+table tbody tr {
+    text-align: center;
 }

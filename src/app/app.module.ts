@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  MatMenuModule,
   MatButtonModule,
   MatCheckboxModule,
   MatCardModule,
@@ -19,8 +20,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import 'hammerjs';
 
 import '@angular/material/prebuilt-themes/indigo-pink.css';
 import { TodoComponent } from './pages/todo/todo.component';
@@ -46,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatCardModule,
     MatToolbarModule,
+    MatMenuModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -71,7 +71,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     CdkTableModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

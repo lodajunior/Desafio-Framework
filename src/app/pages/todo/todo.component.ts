@@ -15,9 +15,8 @@ class TodoElements {
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  colums: string[] = ['id', 'title', 'user', 'completed'];
-  todoList = new Array<TodoElements>();
-  newTodoList = new MatTableDataSource<TodoElements>(this.todoList);
+  todos = [];
+  newTodos = []
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator
 
@@ -32,11 +31,19 @@ export class TodoComponent implements OnInit {
       const res = await this.apiService.getToDo();
       console.log('res: ', res);
       if (res) {
-        this.todoList = res;
-        debugger
+        this.todos = res;
+        this.newTodos = res;
       }
     } catch (error) {
       console.log('error: ', error);
     }
+  }
+
+  search() {
+
+  }
+
+  filtro() {
+
   }
 }

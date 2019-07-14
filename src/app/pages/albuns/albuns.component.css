@@ -1,3 +1,7 @@
+mat-card.mat-card {
+	margin: 10px;
+}
+
 mat-card.mat-card-albums.mat-card-albums {
     background-color: #343a40;
     color: #ffffff;
@@ -13,7 +17,7 @@ mat-card-actions.mat-card-actions {
     text-align: center;
 }
 
-button.delete-button.mat-button._mat-animation-noopable {
+/* button.delete-button.mat-button._mat-animation-noopable {
 	background-color:#c74545;
 	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
@@ -55,7 +59,7 @@ button.edit-button.mat-button._mat-animation-noopable:hover {
 button.edit-button.mat-button._mat-animation-noopable:active {
 	position:relative;
 	top:1px;
-}
+} */
 
 mat-card-title.card-album-title.mat-card-title {
     font-size: large;
@@ -66,7 +70,8 @@ mat-card-title.card-album-title.mat-card-title {
 mat-card-subtitle.card-album-subtitle.mat-card-subtitle {
     font-size: small;
     padding: 0px;
-    margin-bottom: 16px;
+	margin-bottom: 16px;
+	color: #ffffff;
 }
 
 input#mat-input-0 {

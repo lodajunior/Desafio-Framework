@@ -6,30 +6,50 @@
                     <mat-card-title class="card-title-page">To-Do's</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <table cdk-table [dataSource]="newTodoList">
-                        <ng-container cdkColumnDef="id">
-                            <th cdk-header-cell *cdkHeaderCellDef> Id </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.id}} </td>
-                        </ng-container>
-
-                        <ng-container cdkColumnDef="title">
-                            <th cdk-header-cell *cdkHeaderCellDef> Title </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.name}} </td>
-                        </ng-container>
-
-                        <ng-container cdkColumnDef="userId">
-                            <th cdk-header-cell *cdkHeaderCellDef> UserId </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.userId}} </td>
-                        </ng-container>
-
-                        <ng-container cdkColumnDef="completed">
-                            <th cdk-header-cell *cdkHeaderCellDef> Completed </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.completed}} </td>
-                        </ng-container>
-
-                        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-                        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                    <!-- <div class="row">
+                        <div class="col-md-12">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Search Id or Title">
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-lg table-dark">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Completed</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of todos; let index">
+                                        <!-- <th scope="row"></th> -->
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.title}}</td>
+                                        <td>{{item.userId}}</td>
+                                        <td>{{item.completed}}</td>
+                                        <td>
+                                            <div class="row button-row">
+                                                <div class="col-md-12">
+                                                    <button class="edit-button" mat-raised-button color="primary">
+                                                        Editar</button>
+                                                    <button class="delete-button" mat-raised-button color="warn">
+                                                        Excluir</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </div>
