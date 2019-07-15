@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class TodosService {
+
   private pathURL = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) { }
 
-  getToDo() {
+  getTodo(id: any) {
+    return new Promise<any>((resolve, reject) => {
+      this.http.get(`${this.pathURL}/todos/${id}`).toPromise().then(res => {
+        resolve(res);
+      }).catch(error => {
+        reject(error)
+      });
+    });
+  }
+
+  getTodos() {
     return new Promise<any>((resolve, reject) => {
       this.http.get(`${this.pathURL}/todos`).toPromise().then(response => {
         resolve(response);
@@ -20,20 +30,20 @@ export class ApiService {
     });
   }
 
-  getPosts() {
+  updateTodo(id: any, object: any) {
     return new Promise<any>((resolve, reject) => {
-      this.http.get(`${this.pathURL}/posts`).toPromise().then(response => {
-        resolve(response);
+      this.http.put(`${this.pathURL}/post/${id}`, object).toPromise().then(res => {
+        resolve(res);
       }).catch(error => {
         reject(error);
-      });
+      })
     });
   }
 
-  getAlbuns() {
+  deleteTodo(id: any) {
     return new Promise<any>((resolve, reject) => {
-      this.http.get(`${this.pathURL}/albums`).toPromise().then(response => {
-        resolve(response);
+      this.http.delete(`${this.pathURL}/todos/${id}`).toPromise().then(() => {
+        resolve('Post Deleted');
       }).catch(error => {
         reject(error);
       });

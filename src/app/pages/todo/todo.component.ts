@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { TodosService } from 'src/app/services/todos.service';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 class TodoElements {
@@ -16,19 +16,20 @@ class TodoElements {
 })
 export class TodoComponent implements OnInit {
   todos = [];
-  newTodos = []
+  newTodos = [];
+  searchTodo: any
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator
 
-  constructor(private apiService: ApiService) { }
+  constructor(private todosService: TodosService) { }
 
   ngOnInit() {
-    this.getInformations();
+    this.getAllTodos();
   }
 
-  async getInformations() {
+  async getAllTodos() {
     try {
-      const res = await this.apiService.getToDo();
+      const res = await this.todosService.getTodos();
       console.log('res: ', res);
       if (res) {
         this.todos = res;
@@ -39,8 +40,24 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  search() {
+  async deleteTodo(id: any) {
+    try {
+      const res = await this.todosService.deleteTodo(id);
+      console.log('res: ', res);
+      if (res) {
+        this.getAllTodos();
+      }
+    } catch (error) {
+      console.log('error: ', error);
+    }
+  }
 
+  search() {
+    this.todos = this.newTodos.filter(album => {
+      if (album.title && album.title.toLowerCase().includes(this.searchTodo.toLowerCase())) {
+        return album;
+      }
+    });
   }
 
   filtro() {

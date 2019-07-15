@@ -8,11 +8,11 @@
                 <mat-card-content>
                     <div class="col-md-12">
                         <!-- <div class="row search-album">
-                                <mat-form-field>
-                                    <mat-label>Search Album</mat-label>
-                                    <input matInput>
-                                </mat-form-field>
-                            </div> -->
+                            <mat-form-field>
+                                <mat-label>Search Album</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-4" *ngFor="let item of albums">
                                 <mat-card class="mat-card-albums">
@@ -33,7 +33,8 @@
                                     </mat-card-content>
                                     <mat-card-actions>
                                         <button class="edit-button" mat-raised-button color="primary"> Editar</button>
-                                        <button class="delete-button" mat-raised-button color="warn"> Excluir</button>
+                                        <button class="delete-button" mat-raised-button color="warn"
+                                            (click)="deleteAlbum(item.id)"> Excluir</button>
                                     </mat-card-actions>
                                 </mat-card>
                             </div>

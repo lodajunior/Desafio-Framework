@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,17 +7,19 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  posts = []
+  posts = [];
+  newPosts = [];
+  searchPost: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
-    this.getInformations();
+    this.getAllPosts();
   }
 
-  async getInformations() {
+  async getAllPosts() {
     try {
-      const res = await this.apiService.getPosts();
+      const res = await this.postsService.getPosts();
       console.log('res: ', res);
       if (res) {
         this.posts = res;
@@ -25,5 +27,25 @@ export class PostsComponent implements OnInit {
     } catch (error) {
       console.log('error: ', error);
     }
+  }
+
+  async deletePost(id: any) {
+    try {
+      const res = await this.postsService.deletePost(id);
+      console.log('res: ', res);
+      if (res) {
+        this.getAllPosts();
+      }
+    } catch (error) {
+      console.log('error: ', error);
+    }
+  }
+
+  search() {
+    this.posts = this.newPosts.filter(album => {
+      if (album.title && album.title.toLowerCase().includes(this.searchPost.toLowerCase())) {
+        return album;
+      }
+    });
   }
 }

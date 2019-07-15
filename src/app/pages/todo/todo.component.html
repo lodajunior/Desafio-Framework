@@ -40,7 +40,8 @@
                                                 <div class="col-md-12">
                                                     <button class="edit-button" mat-raised-button color="primary">
                                                         Editar</button>
-                                                    <button class="delete-button" mat-raised-button color="warn">
+                                                    <button class="delete-button" mat-raised-button color="warn"
+                                                        (click)="deleteTodo(item.id)">
                                                         Excluir</button>
                                                 </div>
                                             </div>

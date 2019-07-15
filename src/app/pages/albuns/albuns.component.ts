@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { AlbumsService } from 'src/app/services/albums.service';
 
 @Component({
   selector: 'app-albuns',
@@ -11,15 +11,15 @@ export class AlbunsComponent implements OnInit {
   newAlbums = [];
   searchAlbum: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private albumsService: AlbumsService) { }
 
   ngOnInit() {
-    this.getInformations();
+    this.getAllAlbums();
   }
 
-  async getInformations() {
+  async getAllAlbums() {
     try {
-      const res = await this.apiService.getAlbuns();
+      const res = await this.albumsService.getAbums();
       console.log('res: ', res);
       if (res) {
         this.albums = res;
@@ -30,9 +30,20 @@ export class AlbunsComponent implements OnInit {
     }
   }
 
-  filter() {
-    console.log('filtro: ', this.searchAlbum);
-    this.newAlbums = this.albums.filter(album => {
+  async deleteAlbum(id: any) {
+    try {
+      const res = await this.albumsService.deleteAlbum(id);
+      console.log('res: ', res);
+      if (res) {
+        this.getAllAlbums();
+      }
+    } catch (error) {
+      console.log('error: ', error);
+    }
+  }
+
+  search() {
+    this.albums = this.newAlbums.filter(album => {
       if (album.title && album.title.toLowerCase().includes(this.searchAlbum.toLowerCase())) {
         return album;
       }
